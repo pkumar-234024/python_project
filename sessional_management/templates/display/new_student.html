@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>new student</title>
+    <link rel="stylesheet" href="{%static "displayingcss/new_student.css"%}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sessional Management</h1>
+      </div>
+      <br>
+      <div class="back_edit_page">
+        <h1>Add new Student</h1>
+        <hr>
+        <div class="edit_block">
+          <form class="form_part" action="/add_new/" method="post">
+            {% csrf_token %}
+            <tr>
+              <td>Student Name : </td><br>
+              <td>{{form.sstudent_name}}</td>
+            </tr>
+             <br><br>
+
+            <tr>
+              <td>Student Roll no : </td><br>
+              <td>{{form.srollno}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Student Branch : </td><br>
+              <td>{{form.sbranch}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional First : </td><br>
+              <td>{{form.sfirst_marks}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional Second  : </td><br>
+              <td>{{form.ssecond_marks}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional Third : <br>
+              <td>{{form.sthird_marks}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Total : </td><br>
+              <td>{{form.stotal_marks}}</td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td><button type="submit" name="submit_button">submit</button></td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td><button type="reset" name="reset_button">reset</button></td>
+            </tr>
+            <br> <br>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+
+      </div>
+    </div>
+    <br>
+  </body>
+</html>

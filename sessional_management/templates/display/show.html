@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static "displayingcss/show_css.css" %}">
+    <title>show</title>
+  </head>
+  <body>
+      <div class="container">
+        <div class="header">
+          <h1>Sessional Management</h1>
+        </div>
+        <br>
+          <div class="show_table">
+            {% if student_record %}
+            <table>
+              <caption><h1>STUDENT DATA </h1></caption>
+              <thead>
+                <th>Student Name</th>
+                <th>Roll NO</th>
+                <th>Branch</th>
+                <th>First Sessional marks</th>
+                <th>Second Sessional marks</th>
+                <th>Third Sessional marks</th>
+                <th>total</th>
+                <th colspan="2">action</th>
+              </thead>
+              {%for stdnt in student_record%}
+              <tr>
+                <td>{{stdnt.sstudent_name}}</td>
+                <td>{{stdnt.srollno}}</td>
+                <td>{{stdnt.sbranch}}</td>
+                <td>{{stdnt.sfirst_marks}}</td>
+                <td>{{stdnt.ssecond_marks}}</td>
+                <td>{{stdnt.sthird_marks}}</td>
+                <td>{{stdnt.stotal_marks}}</td>
+
+                <!-- <td>
+                   <a href="/edit/{{stdnt.id}}"><span>Edit</span></a>
+                </td> -->
+                <td>
+                  <a href="/delete/{{stdnt.id}}"><span>Delete</span></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+            {% else %}
+            <p>no record found !!!</p>
+            {% endif %}
+            <br>
+
+            <div class="footer">
+              <a href="/add_new"><h5>add new Student</h5></a>
+            </div>
+          </div>
+          <div class="footer">
+
+          </div>
+      </div>
+  </body>
+</html>

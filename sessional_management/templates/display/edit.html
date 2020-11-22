@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>edit</title>
+    <link rel="stylesheet" href="{%static "displayingcss/edit_css.css"%}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sessional Management</h1>
+      </div>
+      <br>
+      <div class="back_edit_page">
+        <h1>Edit Student Data</h1>
+        <hr>
+        <div class="edit_block">
+          <form class="form_part" action="/update/{{student_record.id}}" method="post">
+            {% csrf_token %}
+           <tr>
+              <td>Student Name : </td><br>
+              <td><input type="text" id="id_sstudent_name" name="sstudent_name" value="{{student_record.sstudent_name}}" maxlength="100" required></td>
+
+             <br><br>
+
+            <tr>
+              <td>Student Roll no : </td><br>
+              <td><input type="text" id="id_srollno" name="srollno" value="{{student_record.srollno}}" maxlength="12" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Student Branch : </td><br>
+              <td><input type="text" id="id_sbranch" name="sbranch" value="{{student_record.sbranch}}" maxlength="20" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional First : </td><br>
+              <td><input type="number" id="id_sfirst_marks" name="sfirst_marks" value="{{student_record.sfirst_marks}}" maxlength="2" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional Second  : </td><br>
+              <td><input type="number" id="id_ssecond_marks" name="ssecond_marks" value="{{student_record.ssecond_marks}}" maxlength="2" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Sessional Third : <br>
+              <td><input type="number" id="id_sthird_marks" name="sthird_marks" value="{{student_record.sthird_marks}}" maxlength="2" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td>Total : </td><br>
+              <td><input type="number" id="id_stotal_marks" name="stotal_mraks" value="{{student_record.stotal_marks}}" maxlength="2" required></td>
+            </tr>
+              <br> <br>
+
+            <tr>
+              <td><button type="submit" name="submit_button">update</button></td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td><button type="reset" name="reset_button">reset</button></td>
+            </tr>
+            <br> <br>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+
+      </div>
+    </div>
+    <br>
+  </body>
+</html>

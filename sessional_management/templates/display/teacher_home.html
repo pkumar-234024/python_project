@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>home page</title>
+    <link rel="stylesheet" href="{%static "displayingcss/teacher_login_home.css"%}" type="text/css">
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="header">
+        <h1>Sessional Management</h1>
+      </div>
+
+      <div class="container2">
+      {% if teacher_record %}
+        <h1>Admin Page</h1>
+        <br>
+        <hr>
+        <br><br>
+        {% for td in teacher_record %}
+        <div class="leftdiv">
+            
+          <p>Name : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{td.tteacher_name}}</p><br>
+          <p>Branch : &nbsp&nbsp&nbsp&nbsp&nbsp{{td.tteacher_branch}}</p><br>
+        </div>
+        <div class="rightdiv">
+          <p>Id no : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{steacher_id}}</p><br>
+          <p>session : &nbsp&nbsp&nbsp&nbsp&nbsp{{syear_session}}</p><br>
+        </div>
+         {% endfor %} 
+        <br><br>
+      {% else %}
+        <p>no data</p>
+        {% endif %}
+        <br>
+        <h4>Search Student Data</h4>
+        <hr>
+        <br>
+        <form class="" action="/show" method="post">
+          {% csrf_token %}
+          <div class="search_container">
+            <tr>
+
+              <td>year :</td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td> <select class="" name="syear">
+                <option value="first">first</option>
+                <option value="second">second</option>
+                <option value="third">third</option>
+                <option value="fourth">fourth</option>
+              </select> </td>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+              <td>Branch  :</td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td>
+            <select class="" name="sbranch">
+              <option value="cse">Computer Science anad Engineering</option>
+              <!-- <option value="me">Mechanical Engineering</option>
+              <option value="ece">Electronics and Communication Engineering</option> -->
+            </select>
+          </td>
+            </tr>
+            <br><br>
+            <tr>
+
+
+              <td>semester :</td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td> <select class="" name="ssem" >
+                <option value="first" selected>first</option>
+                <option value="second">second</option>
+                <option value="third">third</option>
+                <option value="fourth">fourth</option>
+                <option value="fifth">fifth</option>
+                <option value="sixt">sixth</option>
+                <option value="seventh">seventh</option>
+                <option value="eighth">eighth</option>
+              </select> </td>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+              <td>Subject  :</td>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <td>
+            <select class="" name="ssubject">
+              <option value="ds" selected>Data Structure using C</option>
+              <option value="dbms">Database Managemet System</option>
+              <option value="ppl">principal of programming language</option>
+            </select>
+          </td>
+            </tr>
+            <br><br>
+            <tr>
+              <td> <button type="submit" name="search_data" >search</button></td>
+              <td> <button type="reset" >reset</button></td>
+            </tr>
+            <br><br>
+          </div>
+        </form>
+        <br>
+      </div>
+        
+    </div>
+  </body>
+</html>
