@@ -10,23 +10,25 @@ body{
     height: 300px;
     background-color: gray;
 }
-.foort-containor{
-    
+.footer-containor{
+    margin: auto;
+    margin-top: 50px;
     width: 90%;
     height: 200px;
     background-color: gray;
 }
-.footer-containor about-containor{
-    width: 50%;
-    height: 100px;
-    background-color: gray;
-    
-}
-.footer-containor contact-containor{
+#contact-containor{
     
     margin-top: 50px;
-    width: 50%;
+    width: 45%;
     height: 100px;
-    background-color: gray;
+    background-color: yellow;
+    float: left;
     
+}
+#about-containor{
+    width: 45%;
+    height: 100px;
+    background-color: green;
+    float: right;
 }
